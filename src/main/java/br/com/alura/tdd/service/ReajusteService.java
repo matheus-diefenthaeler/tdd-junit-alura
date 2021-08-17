@@ -8,23 +8,8 @@ import java.math.BigDecimal;
 public class ReajusteService {
 
     public void concederReajuste(Funcionario funcionario, Desempenho desempenho) {
-
-        BigDecimal reajuste;
-
-        switch (desempenho) {
-            case A_DESEJAR:
-                reajuste = funcionario.getSalario().multiply(new BigDecimal("0.03"));
-                funcionario.reajustarSalario(reajuste);
-                break;
-            case BOM:
-                reajuste = funcionario.getSalario().multiply(new BigDecimal("0.15"));
-                funcionario.reajustarSalario(reajuste);
-                break;
-            case OTIMO:
-                reajuste = funcionario.getSalario().multiply(new BigDecimal("0.20"));
-                funcionario.reajustarSalario(reajuste);
-                break;
-        }
-
+        BigDecimal percentual = desempenho.percentualReajuste();
+        BigDecimal reajuste = funcionario.getSalario().multiply(percentual);
+        funcionario.reajustarSalario(reajuste);
     }
 }
