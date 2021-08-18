@@ -11,27 +11,27 @@ import java.time.LocalDate;
 public class ReajusteServiceTest {
 
     @Test
-    public void deveriaReajustar3PorCentoParaDesempenhoRegular(){
+    public void deveriaReajustar3PorCentoParaDesempenhoRegular() {
         ReajusteService service = new ReajusteService();
-        Funcionario funcionario = new Funcionario("Fulano", LocalDate.now(),new BigDecimal("1000.00"));
+        Funcionario funcionario = new Funcionario("Fulano", LocalDate.now(), new BigDecimal("1000.00"));
         service.concederReajuste(funcionario, Desempenho.A_DESEJAR);
 
         Assertions.assertEquals(new BigDecimal("1030.00"), funcionario.getSalario());
     }
 
     @Test
-    public void deveriaReajustar15PorCentoParaDesempenhoBOM(){
+    public void deveriaReajustar15PorCentoParaDesempenhoBOM() {
         ReajusteService service = new ReajusteService();
-        Funcionario funcionario = new Funcionario("Fulano", LocalDate.now(),new BigDecimal("1000.00"));
+        Funcionario funcionario = new Funcionario("Fulano", LocalDate.now(), new BigDecimal("1000.00"));
         service.concederReajuste(funcionario, Desempenho.BOM);
 
         Assertions.assertEquals(new BigDecimal("1150.00"), funcionario.getSalario());
     }
 
     @Test
-    public void deveriaReajustar20PorCentoParaDesempenhoOtimo(){
+    public void deveriaReajustar20PorCentoParaDesempenhoOtimo() {
         ReajusteService service = new ReajusteService();
-        Funcionario funcionario = new Funcionario("Fulano", LocalDate.now(),new BigDecimal("1000.00"));
+        Funcionario funcionario = new Funcionario("Fulano", LocalDate.now(), new BigDecimal("1000.00"));
         service.concederReajuste(funcionario, Desempenho.OTIMO);
 
         Assertions.assertEquals(new BigDecimal("1200.00"), funcionario.getSalario());
